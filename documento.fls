@@ -1,6 +1,6 @@
-PWD c:\WS\Latex\Metodologia
+PWD c:\WS\Latex\Metodologia\metodologia
 INPUT C:\Users\Aluno\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\WS\Latex\Metodologia\documento.tex
+INPUT c:\WS\Latex\Metodologia\metodologia\documento.tex
 OUTPUT documento.log
 INPUT .\preambulo.tex
 INPUT .\preambulo.tex
