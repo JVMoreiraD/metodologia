@@ -33,6 +33,23 @@ artificial.
 \subsection{Conceito do motor de xadrez}
 
 \subsection{Algoritmo de busca min-max}
+O algoritmo minimax é aplicado em jogos adversariais e de soma zero,jogos esses que possuem 2 jogadores e cada um joga
+por turnos, a vitória de um jogador implica na derrota do outro.
+
+O minimax é um algoritmo de força bruta,isso significa que seu objetivo é enumerar todos os possíveis candidatos de uma
+solução e verificar se cada um satisfaz o problema, o algoritmo divide as possibilidades de ações em uma árvore de jogadas
+para conseguir a melhor jogada possível,essa árvore vai ser definida em etapas de minimização(min) e maximização(max),
+sendo cada uma destas etapas representadas por uma jogada do adversário ou da máquina respectivamente,cada nó representa
+uma configuração e cada aresta representa uma jogada que leva a uma determinada configuração.
+
+O fim de uma aresta significa o fim de uma partida, nisso é aplicado uma avaliação para validar se aquele nó possui
+um resultado positivo ou negativo para a máquina, o nó em questão recebe um valor com base no seu resultado.
+
+Após o fim de todas as arestas de um nó subimos para o nó antecessor a essa aresta em questão, se o nó em questão for um nó
+de min, ou seja,uma jogada do adversário, atribuímos ao nó o valor mínimo entre os valores de suas arestas, caso seja o max,
+uma jogada da máquina, atribuímos o valor máximo entre suas arestas.
+
+No fim de todas as arestas o algoritmo escolhe a aresta com o maior valor pois esta é a melhor alternativa para se seguir.
 
 \subsection{Algoritmo alpha-beta pruning}
 
