@@ -1,27 +1,27 @@
 INFO:  latexindent.pl version 3.17.3, 2022-06-05, a script to indent .tex files
-       latexindent.pl lives here: C:/Users/jvito/AppData/Local/Programs/MiKTeX/scripts/latexindent/
-       Wed Jun 22 22:47:09 2022
-       Filename: d:/WS/metodologia/elementos-textuais/__latexindent_temp.tex
+       latexindent.pl lives here: C:/Users/Aluno/AppData/Local/Programs/MiKTeX/scripts/latexindent/
+       Thu Jun 23 09:00:22 2022
+       Filename: c:/WS/Latex/Metodologia/metodologia/elementos-textuais/__latexindent_temp.tex
 INFO:  Processing switches:
        -y|--yaml: YAML settings specified via command line
        -c|--cruft: cruft directory
-INFO:  Directory for backup files and d:/WS/metodologia//indent.log:
-       d:/WS/metodologia/
+INFO:  Directory for backup files and c:/WS/Latex/Metodologia/metodologia//indent.log:
+       c:/WS/Latex/Metodologia/metodologia/
 INFO:  Perl modules are being loaded from the following directories:
-       D:/strawberry/perl/lib/FindBin.pm
-       D:/strawberry/perl/vendor/lib/YAML/Tiny.pm
-       D:/strawberry/perl/lib/File/Copy.pm
-       D:/strawberry/perl/lib/File/Basename.pm
-       D:/strawberry/perl/lib/Getopt/Long.pm
-       D:/strawberry/perl/vendor/lib/File/HomeDir.pm
+       C:/Strawberry/perl/lib/FindBin.pm
+       C:/Strawberry/perl/vendor/lib/YAML/Tiny.pm
+       C:/Strawberry/perl/lib/File/Copy.pm
+       C:/Strawberry/perl/lib/File/Basename.pm
+       C:/Strawberry/perl/lib/Getopt/Long.pm
+       C:/Strawberry/perl/vendor/lib/File/HomeDir.pm
 INFO:  LatexIndent perl modules are being loaded from, for example:
-       C:/Users/jvito/AppData/Local/Programs/MiKTeX/scripts/latexindent/LatexIndent/Document.pm
+       C:/Users/Aluno/AppData/Local/Programs/MiKTeX/scripts/latexindent/LatexIndent/Document.pm
 INFO:  YAML settings read: defaultSettings.yaml
-       Reading defaultSettings.yaml from C:/Users/jvito/AppData/Local/Programs/MiKTeX/scripts/latexindent/defaultSettings.yaml
+       Reading defaultSettings.yaml from C:/Users/Aluno/AppData/Local/Programs/MiKTeX/scripts/latexindent/defaultSettings.yaml
 INFO:  YAML settings read: indentconfig.yaml or .indentconfig.yaml
-       Home directory is C:\Users\jvito (didn't find either indentconfig.yaml or .indentconfig.yaml)
-       To specify user settings you would put indentconfig.yaml here: C:\Users\jvito/indentconfig.yaml
-       Alternatively, you can use the hidden file .indentconfig.yaml as: C:\Users\jvito/.indentconfig.yaml
+       Home directory is C:\Users\Aluno (didn't find either indentconfig.yaml or .indentconfig.yaml)
+       To specify user settings you would put indentconfig.yaml here: C:\Users\Aluno/indentconfig.yaml
+       Alternatively, you can use the hidden file .indentconfig.yaml as: C:\Users\Aluno/.indentconfig.yaml
 INFO:  YAML settings read: -y switch
        YAML setting: defaultIndent:'    '
        single-quoted string found in -y switch: '    ', substitute to     

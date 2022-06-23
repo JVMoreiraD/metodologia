@@ -5,6 +5,11 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v-1.9.7 }
 
+\bibitem[Allende-Cid 2019]{ALLEND-CID}
+\abntrefinfo{Allende-Cid}{ALLENDE-CID}{2019}
+{ALLENDE-CID, H. Machine learning: Catalisador da ciência.
+\textbf{Revista da Sociedade Brasileira de Computação}, v.~39, n.~1, 2019.}
+
 \bibitem[Hintze 2016]{HINTZE}
 \abntrefinfo{Hintze}{HINTZE}{2016}
 {HINTZE, A. \textbf{The Conversation}: Understanding the four types of {AI},
