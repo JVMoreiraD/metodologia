@@ -7,7 +7,7 @@ Depois, falaremos sobre o estado da arte deste tema.
 \section{Teoria e Conceitos de Base}
 Esta parte do projeto conterá as informações teóricas necessárias para compreensão do tema e sua problematização,
 assim veremos os conceitos de inteligência artificial, motor de xadrez, algoritmo de busca min-max,
-algoritmo alpha-beta pruning e as funções de avaliação de otimização do tabuleiro por meio de algoritmos genéticos.
+algoritmo \textit{alpha-beta pruning} e as funções de avaliação de otimização do tabuleiro por meio de algoritmos genéticos.
 
 \subsection{Conceito de Inteligencia Artificial}
 O conceito de inteligência artificial surgiu da ideia de reproduzir nas máquinas a capacidade humana de usar das informações
@@ -36,11 +36,14 @@ De acordo com Allende-Cid(2019),
     tais quais decisões de especialistas da área da saúde. Quando seres humanos lidam com problemas complexos, muitas vezes é impossível explicar o raciocínio
     que levou a tomar determinadas decisões. Por outro lado, é menos complexo realizarmos a coleta dos exemplos de decisões tomadas por seres humanos e usá-los
     como fonte para que o sistema aprenda a resolver o mesmo problema.\cite[tradução dos editores, p.16.]{ALLEND-CID}
-
 \end{citacao}
 
-Redes neurais ou redes neurais artificiais é um dos tipos de machine learning que se inspira no cérebro humano imitando a forma como
-os nossos neurônios conversam entre si.
+Fausett(1993) trata redes neurais como:
+\begin{citacao}
+    (...) um sistema de processamento de informações que possui certas características de desempenho em comum com as redes
+    neurais biológicas. Redes neurais artificiais foram desenvolvidas como generalização de modelos matemáticos da cognição
+    humana ou biologia neural (...) \cite[tradução nossa, p.3]{FAUSETT}
+\end{citacao}
 
 \subsection{Conceito do motor de xadrez}
 A primeira aplicação de um motor de xadrez foi criada entre os anos de 1950 a 1953 por Alan Turing juntamente com a ideia base
@@ -56,8 +59,20 @@ Santana (2014) define um motor de xadrez como:
 
 \end{citacao}
 
+Os motores de xadrez em geral não possuem interface gráfica própria, eles apenas recebem comandos e devolvem o próximo
+movimento, assim para que haja interação com outros programas se faz necessário um protocolo de comunicação, a partir
+da padronização de comandos utilizados no protocolo, dois motores diferentes podem interagir com uma mesma interface
+sem conflitos.
+
+É necessário que o motor faça a representação do tabuleiro do jogo, mantendo dados como a posição de todas as peças no tabuleiro,
+a regra de 50 movimentos, entre outros. Uma boa representação do tabuleiro torna o cálculo de movimentos e a avaliação do tabuleiro
+muito rápidas, de forma geral, existem três métodos diferentes para representar um tabuleiro: centrado nas casas, centrado nas peças
+e soluções híbridas. Bijl e Tiet (2021) ressaltam a importância desta fase, pois qualquer algoritmo, esteja relacionado a pesquisa
+ou avaliação, tem como base a implementação da representação do tabuleiro.
+
 
 \subsection{Algoritmo de busca min-max}
+
 O algoritmo minimax é aplicado em jogos adversariais e de soma zero,jogos esses que possuem 2 jogadores e cada um joga
 por turnos, a vitória de um jogador implica na derrota do outro.
 
@@ -76,8 +91,78 @@ uma jogada da máquina, atribuímos o valor máximo entre suas arestas.
 
 No fim de todas as arestas o algoritmo escolhe a aresta com o maior valor pois esta é a melhor alternativa para se seguir.
 
+\begin{figure}[!ht]
+    \Caption{Representação do algoritmo minimax}
+    \centering
+    \label{minimax}
+    \includegraphics[scale=0.8]{figuras/minimax2.png}
+    \Fonte{Internet}
+\end{figure}
+
+\begin{figure}[!ht]
+    \Caption{Representação do algoritmo minimax no xadrez}
+    \centering
+    \label{minimax-chess}
+    \includegraphics[scale=0.5]{figuras/Minimax Chess.jpeg}
+    \Fonte{freeCodeCamp}
+\end{figure}
+
+
 \subsection{Algoritmo alpha-beta pruning}
 
-\subsection{Funções de avaliação de otimização do tabuleiro por meio de algoritmos genéticos}
+O alpha-beta prunning é um algoritmo de otimização do minimax onde excluímos as arestas que possuem um valor pior do que um
+valor encontrado anteriormente, isso é feito para economizar tempo de processamento da máquina.
 
-\section{Estado da Arte}
+O algoritmo funciona da seguinte forma,existem duas variáveis chamadas alpha e beta respectivamente, alpha é o maior valor
+que o maximizador pode garantir naquele nível da árvore ou abaixo e beta é o menor valor que o minimizador possui naquele
+nível da árvore ou abaixo.
+
+no começo do funcionamento do algoritmo atribuímos ao alpha o valor de “-infinito” e ao beta o valor de “+infinito” pois a
+ideia é que o valor de alpha seja substituído por um valor maior que -infinito,ou seja, qualquer um, e que o valor de beta
+seja substituído por um menor, seguindo a mesma lógica.
+
+seguimos então até o fim de uma aresta e avaliamos o valor de seu nó, voltamos então para o nível acima da árvore, caso seja
+uma jogada minimizadora, atribuímos o valor da aresta que acabamos de avaliar como o valor de beta, seguimos então para
+avaliar as outras arestas desse nó
+
+\subsection{Funções com uso de redes neurais}
+
+Redes neurais ou redes neurais artificiais é um dos tipos de machine learning que se inspira no cérebro
+humano imitando a forma como os nossos neurônios conversam entre si usando um algoritmo de aprendizagem
+que tem como objetivo modificar pesos sinápticos da rede de uma forma ordenada para alcançar uma solução esperada.
+
+Haykin define redes neurais e suas semelhanças com o cérebro humano da seguinte forma:
+
+\begin{citacao}
+    Uma rede neural é um processador maciçamente paralelamente distribuído constituído de unidade de processamento simples,
+    que têm a propensão natural para armazenar conhecimento experimental e torna-lo disponível para uso. Ela se assemelha ao cérebro humano
+    em dois aspectos:
+
+    1. O conhecimento é adquirido pela rede a partir de seu ambiente através de um processo de aprendizagem.
+
+    2. Forças de conexão de neurônios, conhecidas como pesos sinápticos, são utilizados para armazenar o conhecimento adquirido.
+    \cite{HAYKIN}
+\end{citacao}
+
+\subsection{Estado da Arte}
+
+Existem vários trabalhos envolvendo a criação de motores de xadrez e descrição de seus algoritmos, iremos aqui citar
+alguns dos quais tomamos como base para este projeto.
+
+Santana (2014) apresenta teorias e algoritmos relacionados ao xadrez para computador e mostra possíveis implementações
+para um motor de xadrez, no final ele analisa a implementação dentro do motor de xadrez de código aberto Pulse.
+
+Abreu et al. (2006) também apresenta teorias e implementações de algoritmos, mas este descreve técnicas mais avançadas,
+como: Tabelas de transposição, extensões e reduções de busca, livro de aberturas e banco de dados finais. Além disso,
+este trabalho faz a análise resumida de um motor de xadrez de propriedade dos autores chamado ICE.
+
+Block et al. (2008) apresenta a teoria matemática e lógica para implementar aprendizado por reforço por meio de um
+método chamado Diferença Temporal (DT), o qual otimiza as funções de avaliação e seus coeficientes, e tem a capacidade
+de aumentar sua própria compreensão do xadrez após cada partida.
+
+Bijl e Tiet (2021) nos expõem uma visão mais atual quanto ao uso de alguns algoritmos em motores de xadrez. Eles fazem
+a comparação de diferentes técnicas tanto no fator de velocidade quanto no de qualidade de movimentos.
+
+Como pode ser visto, existem vários trabalhos explicando diferentes tipos de implementação dos algoritmos para motores de xadrez,
+mas não muitos fazem a comparação entre eles e suas implementações nestes, assim buscamos ampliar a visão neste tema, mostrando
+caminhos no qual os algoritmos podem ser melhorados.
