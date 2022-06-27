@@ -1,13 +1,13 @@
 \chapter{Referencial Teórico}
 Nesta seção, serão apresentados os fundamentos teóricos que servirão de base para sustentar o estudo sobre a inteligência
-artificial dentro da área de algoritmos e motores do jogo de xadrez online. Primeiramente, iremos compreender as teorias e
-conceitos de base para esta pesquisa, que proveram as informações necessárias para a análise e comparação em questão.
+artificial dentro da área de algoritmos e motores do jogo de xadrez para computador. Primeiramente, iremos compreender as
+teorias e conceitos de base para esta pesquisa, que proveram as informações necessárias para a análise e comparação em questão.
 Depois, falaremos sobre o estado da arte deste tema.
 
 \section{Teoria e Conceitos de Base}
 Esta parte do projeto conterá as informações teóricas necessárias para compreensão do tema e sua problematização,
-assim veremos os conceitos de inteligência artificial, motor de xadrez, algoritmo de busca min-max,
-algoritmo \textit{alpha-beta pruning} e as funções de avaliação de otimização do tabuleiro por meio de algoritmos genéticos.
+assim veremos os conceitos de inteligência artificial, motor de xadrez, algoritmo de busca \textit{min-max},
+algoritmo \textit{alpha-beta pruning} e suas funções com uso de redes neurais.
 
 \subsection{Conceito de Inteligencia Artificial}
 O conceito de inteligência artificial surgiu da ideia de reproduzir nas máquinas a capacidade humana de usar das informações
@@ -16,12 +16,19 @@ capacidade de automatizar processos ou pelo menos minimizar consideravelmente o 
 e com o avanço cada vez maior da velocidade de processamento das máquinas, elas alcançaram a capacidade de analisar dados
 em taxas extremamente mais rápidas do que a humana.
 
-Como dito por Hintze (2016),
+Hintze (2016) nos explica sobre os tipos mais básicos da inteligência artificial,
 \begin{citacao}
     Os tipos mais básicos de sistemas de IA são puramente reativos e não têm a capacidade de formar memórias nem de usar
     experiências passadas para informar as decisões atuais. Deep Blue, o supercomputador de xadrez da IBM, que derrotou o
     grande mestre internacional Garry Kasparov no final dos anos 1990, é o exemplo perfeito desse tipo de máquina.
     \cite[tradução nossa.]{HINTZE}
+\end{citacao}
+
+Também é dito por Jajal (2018) que:
+\begin{citacao}
+    A Inteligência Artificial Estreita (AIE) também conhecida como IA “fraca” é a IA que existe em nosso mundo hoje.
+    AIE é a IA programada para realizar uma única tarefa – seja verificar o clima, jogar xadrez ou analisar dados brutos
+    para escrever relatórios jornalísticos.\cite[tradução nossa.]{JAJAL}
 \end{citacao}
 
 É importante diferenciar o tipo mais básico de inteligência artificial dos mais complexos, pois o pensamento mais comum
@@ -38,13 +45,6 @@ De acordo com Allende-Cid(2019),
     como fonte para que o sistema aprenda a resolver o mesmo problema.\cite[tradução dos editores, p.16.]{ALLEND-CID}
 \end{citacao}
 
-Fausett(1993) trata redes neurais como:
-\begin{citacao}
-    (...) um sistema de processamento de informações que possui certas características de desempenho em comum com as redes
-    neurais biológicas. Redes neurais artificiais foram desenvolvidas como generalização de modelos matemáticos da cognição
-    humana ou biologia neural (...) \cite[tradução nossa, p.3]{FAUSETT}
-\end{citacao}
-
 \subsection{Conceito do motor de xadrez}
 A primeira aplicação de um motor de xadrez foi criada entre os anos de 1950 a 1953 por Alan Turing juntamente com a ideia base
 de Claude Shannon, criando assim o primeiro algoritmo para o jogo de xadrez de computador, que pela falta de uma máquina
@@ -56,7 +56,6 @@ Santana (2014) define um motor de xadrez como:
     configuração de um tabuleiro, isto é, o conjunto de casas contendo a informação de qual peça está ocupando cada casa,
     analisa esta informação considerando somente os movimentos válidos e retorna um movimento que é o melhor possível de
     acordo com algum critério.\cite[p.4.]{SANTANA2014}
-
 \end{citacao}
 
 Os motores de xadrez em geral não possuem interface gráfica própria, eles apenas recebem comandos e devolvem o próximo
@@ -67,27 +66,40 @@ sem conflitos.
 É necessário que o motor faça a representação do tabuleiro do jogo, mantendo dados como a posição de todas as peças no tabuleiro,
 a regra de 50 movimentos, entre outros. Uma boa representação do tabuleiro torna o cálculo de movimentos e a avaliação do tabuleiro
 muito rápidas, de forma geral, existem três métodos diferentes para representar um tabuleiro: centrado nas casas, centrado nas peças
-e soluções híbridas. Bijl e Tiet (2021) ressaltam a importância desta fase, pois qualquer algoritmo, esteja relacionado a pesquisa
-ou avaliação, tem como base a implementação da representação do tabuleiro.
+e soluções híbridas.
 
+Bijl e Tiet (2021) ressaltam a importância desta fase, pois qualquer algoritmo, esteja relacionado a pesquisa
+ou avaliação, tem como base a implementação da representação do tabuleiro.
 
 \subsection{Algoritmo de busca min-max}
 
-O algoritmo minimax é aplicado em jogos adversariais e de soma zero,jogos esses que possuem 2 jogadores e cada um joga
-por turnos, a vitória de um jogador implica na derrota do outro.
+O minimax é um algoritmo de força bruta, isso significa que seu objetivo é enumerar todos os possíveis candidatos de uma solução e verificar
+se cada um satisfaz o problema, no caso do minimax ele divide as possibilidades de ações de cada um dos jogadores em uma árvore de jogadas para
+conseguir a melhor jogada possível.
 
-O minimax é um algoritmo de força bruta,isso significa que seu objetivo é enumerar todos os possíveis candidatos de uma
-solução e verificar se cada um satisfaz o problema, o algoritmo divide as possibilidades de ações em uma árvore de jogadas
-para conseguir a melhor jogada possível,essa árvore vai ser definida em etapas de minimização(min) e maximização(max),
-sendo cada uma destas etapas representadas por uma jogada do adversário ou da máquina respectivamente,cada nó representa
-uma configuração e cada aresta representa uma jogada que leva a uma determinada configuração.
+Essa árvore vai ser definida em etapas de minimização(min) e maximização(max), sendo cada uma destas etapas representadas por uma jogada do
+adversário ou da máquina respectivamente,o objetivo das jogadas de minimização é minimizar as chances de uma boa jogada da máquina e as de
+maximização é maximizar as chances de uma boa jogada da máquina ocorrer,cada nó representa uma configuração do jogo, e cada aresta de um nó representa
+uma jogada que leva a uma determinada configuração.
 
-O fim de uma aresta significa o fim de uma partida, nisso é aplicado uma avaliação para validar se aquele nó possui
-um resultado positivo ou negativo para a máquina, o nó em questão recebe um valor com base no seu resultado.
+De acordo com Eric Thé(1992):
+\begin{citacao}
+    Jogos de soma-zero com dois jogadores que exigem inteligência humana como Xadrez, damas, go e othello
+    podem ser todos resolvidos computacionalmente programando uma procurando uma busca computacional de
+    arvore de estado-espaço onde os nós representam o as posições do problema ou os estados (o tabuleiro do jogo)
+    e os ramos representam as operações que transformam um estado em outro.\cite[tradução nossa.]{ERICTHE}
+\end{citacao}
 
-Após o fim de todas as arestas de um nó subimos para o nó antecessor a essa aresta em questão, se o nó em questão for um nó
-de min, ou seja,uma jogada do adversário, atribuímos ao nó o valor mínimo entre os valores de suas arestas, caso seja o max,
-uma jogada da máquina, atribuímos o valor máximo entre suas arestas.
+Nós que não possuem arestas são denominados de nó folha, esses nós são configurações de fim de jogo, são aplicados nesses nós um fator avaliativo
+para validar se aquele nó possui um resultado positivo ou negativo para a máquina, o nó em questão recebe um valor com base no seu resultado.
+
+
+No caso do xadrez o valor avaliativo é dado com base em um valor específico para cada peça, caso haja mais peças da máquina com um valor
+significativo aquele  possui um valor positivo, caso contrário possui um valor negativo.
+
+Após a avaliação todos as arestas de um nó atribuirmos um valor ao mesmo, se o nó em questão for um nó de min, ou seja, uma jogada
+do adversário, atribuímos ao nó o valor mínimo entre os valores de suas arestas, caso seja o max, uma jogada da máquina, atribuímos
+o valor máximo entre suas arestas.
 
 No fim de todas as arestas o algoritmo escolhe a aresta com o maior valor pois esta é a melhor alternativa para se seguir.
 
@@ -96,7 +108,7 @@ No fim de todas as arestas o algoritmo escolhe a aresta com o maior valor pois e
     \centering
     \label{minimax}
     \includegraphics[scale=0.8]{figuras/minimax2.png}
-    \Fonte{Internet}
+    \Fonte{\url{https://wblog.wiki/pt/Minimax}. Acessado em: 24 de jun. 2022}
 \end{figure}
 
 \begin{figure}[!ht]
@@ -104,26 +116,30 @@ No fim de todas as arestas o algoritmo escolhe a aresta com o maior valor pois e
     \centering
     \label{minimax-chess}
     \includegraphics[scale=0.5]{figuras/Minimax Chess.jpeg}
-    \Fonte{freeCodeCamp}
+    \Fonte{\url{https://www.freecodecamp.org/news/simple-chess-ai-step-by-step-1d55a9266977/}.\\ Acessado em: 24 de jun. 2022}
 \end{figure}
 
 
 \subsection{Algoritmo alpha-beta pruning}
 
-O alpha-beta prunning é um algoritmo de otimização do minimax onde excluímos as arestas que possuem um valor pior do que um
-valor encontrado anteriormente, isso é feito para economizar tempo de processamento da máquina.
+O alpha-beta prunning é um algoritmo de otimização do minimax onde excluímos as arestas que possuem um valor
+pior do que um valor encontrado anteriormente, isso é feito para economizar tempo de processamento da máquina
+já que o algoritmo minimax por si só é muito custoso
 
-O algoritmo funciona da seguinte forma,existem duas variáveis chamadas alpha e beta respectivamente, alpha é o maior valor
-que o maximizador pode garantir naquele nível da árvore ou abaixo e beta é o menor valor que o minimizador possui naquele
-nível da árvore ou abaixo.
 
-no começo do funcionamento do algoritmo atribuímos ao alpha o valor de “-infinito” e ao beta o valor de “+infinito” pois a
-ideia é que o valor de alpha seja substituído por um valor maior que -infinito,ou seja, qualquer um, e que o valor de beta
-seja substituído por um menor, seguindo a mesma lógica.
+O algoritmo funciona da seguinte forma,existem duas variáveis chamadas alpha e beta respectivamente,
+alpha é o maior valor que o maximizador pode garantir naquele nível da árvore ou abaixo e beta é o menor
+valor que o minimizador possui naquele nível da árvore ou abaixo, a cada subida na árvore esses valores são
+atualizados com base nos maiores valores encontrados,logo,quando o algoritmo está decidindo o valor que irá
+atribuir ao nó em questão ele verifica as variáveis para verificar se uma das arestas tem chances de possuir
+um valor maior ou menor do que ele já possui nas variáveis alpha e beta.
 
-seguimos então até o fim de uma aresta e avaliamos o valor de seu nó, voltamos então para o nível acima da árvore, caso seja
-uma jogada minimizadora, atribuímos o valor da aresta que acabamos de avaliar como o valor de beta, seguimos então para
-avaliar as outras arestas desse nó
+
+Pegando por exemplo um nó maximizador A com dois nós filhos minimizadores,B e C,
+caso o valor de B seja 6 saberemos que o nó A maximizador escolherá um valor maior ou igual a 6,
+se avaliarmos o nó C e ele possuir um nó filho com valor 4, saberemos que aquele nó só escolherá um valor 4
+ou menor, logo não há necessidade de fazer mais nenhuma avaliação de seus filhos pois o maior valor para o nó
+A já foi escolhido.
 
 \subsection{Funções com uso de redes neurais}
 
@@ -142,6 +158,13 @@ Haykin define redes neurais e suas semelhanças com o cérebro humano da seguint
 
     2. Forças de conexão de neurônios, conhecidas como pesos sinápticos, são utilizados para armazenar o conhecimento adquirido.
     \cite{HAYKIN}
+\end{citacao}
+
+Fausett(1993) complementa dizendo que:
+\begin{citacao}
+    (...) um sistema de processamento de informações que possui certas características de desempenho em comum com as redes
+    neurais biológicas. Redes neurais artificiais foram desenvolvidas como generalização de modelos matemáticos da cognição
+    humana ou biologia neural (...) \cite[tradução nossa, p.3]{FAUSETT}
 \end{citacao}
 
 \subsection{Estado da Arte}
