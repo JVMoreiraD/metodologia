@@ -102,13 +102,13 @@ para validar se aquele nó possui um resultado positivo ou negativo para a máqu
 
 No caso do xadrez o valor avaliativo é dado com base em um valor específico para cada peça, caso haja mais peças da máquina com um valor
 significativo aquele  possui um valor positivo, caso contrário possui um valor negativo.
-% \begin{figure}[!htb]
-%     \Caption{Representação do algoritmo minimax no xadrez}
-%     \centering
-%     \label{minimax-chess}
-%     \includegraphics[scale=0.5]{figuras/Minimax Chess.jpeg}
-%     \Fonte{\url{https://www.freecodecamp.org/news/simple-chess-ai-step-by-step-1d55a9266977/}.\\ Acessado em: 24 de jun. 2022}
-% \end{figure}
+\begin{figure}[!htb]
+    \Caption{Representação do algoritmo minimax no xadrez}
+    \centering
+    \label{minimax-chess}
+    \includegraphics[scale=0.25]{figuras/Minimax Chess.jpeg}
+    \Fonte{\url{https://www.freecodecamp.org/news/simple-chess-ai-step-by-step-1d55a9266977/}.\\ Acessado em: 24 de jun. 2022}
+\end{figure}
 
 Após a avaliação todos as arestas de um nó atribuirmos um valor ao mesmo, se o nó em questão for um nó de min, ou seja, uma jogada
 do adversário, atribuímos ao nó o valor mínimo entre os valores de suas arestas, caso seja o max, uma jogada da máquina, atribuímos
@@ -118,7 +118,7 @@ o valor máximo entre suas arestas.
     \Caption{Pseudo Código do \textit{minimax}}
     \centering
     \label{minimax-code}
-    \includegraphics[scale=0.25]{figuras/minimax.png}
+    \includegraphics[scale=0.15]{figuras/minimax.png}
     \Fonte{De autoria própria.}
 \end{figure}
 
@@ -129,6 +129,13 @@ No fim de todas as arestas o algoritmo escolhe a aresta com o maior valor pois e
 O \textit{alpha-beta pruning} é um algoritmo de otimização do minimax onde excluímos as arestas que possuem um valor
 pior do que um valor encontrado anteriormente, isso é feito para economizar tempo de processamento da máquina
 já que o algoritmo minimax por si só é muito custoso.
+\begin{figure}[!htb]
+    \Caption{Representação da árvore de jogadas utilizando o  algoritmo alpha-beta}
+    \centering
+    \label{alpha-beta}
+    \includegraphics[scale=0.15]{figuras/Inserir_um_pouquinho_de_texto_1.png}
+    \Fonte{De autoria própria.}
+\end{figure}
 
 O algoritmo funciona da seguinte forma, existem duas variáveis chamadas \textit{alpha} e \textit{beta} respectivamente,
 \textit{alpha} é o maior valor que o maximizador pode garantir naquele nível da árvore ou abaixo e beta é o menor
@@ -136,27 +143,19 @@ valor que o minimizador possui naquele nível da árvore ou abaixo, a cada subid
 atualizados com base nos maiores valores encontrados, logo, quando o algoritmo está decidindo o valor que irá
 atribuir ao nó em questão ele verifica as variáveis para verificar se uma das arestas tem chances de possuir
 um valor maior ou menor do que ele já possui nas variáveis alpha e beta.
-
+\begin{figure}[!htb]
+    \Caption{Pseudo Código do \textit{alpha-beta}}
+    \centering
+    \label{alphabeta-code}
+    \includegraphics[scale=0.15]{figuras/alphabeta.png}
+    \Fonte{De autoria própria.}
+\end{figure}
 Pegando por exemplo um nó maximizador A com dois nós filhos minimizadores, B e C,
 caso o valor de B seja 6 saberemos que o nó A maximizador escolherá um valor maior ou igual a 6,
 se avaliarmos o nó C e ele possuir um nó filho com valor 4, saberemos que aquele nó só escolherá um valor 4
 ou menor, logo não há necessidade de fazer mais nenhuma avaliação de seus filhos pois o maior valor para o nó
 A já foi escolhido.
-\begin{figure}[!htb]
-    \Caption{Representação da árvore de jogadas utilizando o  algoritmo alpha-beta}
-    \centering
-    \label{alpha-beta}
-    \includegraphics[scale=0.30]{figuras/Inserir_um_pouquinho_de_texto_1.png}
-    \Fonte{De autoria própria.}
-\end{figure}
 
-\begin{figure}[!htb]
-    \Caption{Pseudo Código do \textit{alpha-beta}}
-    \centering
-    \label{alphabeta-code}
-    \includegraphics[scale=0.25]{figuras/alphabeta.png}
-    \Fonte{De autoria própria.}
-\end{figure}
 
 \subsection{Funções com uso de redes neurais}
 
