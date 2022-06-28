@@ -81,6 +81,13 @@ Essa árvore vai ser definida em etapas de minimização(min) e maximização(ma
 adversário ou da máquina respectivamente, o objetivo das jogadas de minimização é minimizar as chances de uma boa jogada da máquina e as de
 maximização é maximizar as chances de uma boa jogada da máquina ocorrer, cada nó representa uma configuração do jogo, e cada aresta de um nó representa
 uma jogada que leva a uma determinada configuração.
+\begin{figure}[!htb]
+    \Caption{Representação do algoritmo minimax}
+    \centering
+    \label{minimax}
+    \includegraphics[scale=0.8]{figuras/minimax2.png}
+    \Fonte{\url{https://wblog.wiki/pt/Minimax}. Acessado em: 24 de jun. 2022}
+\end{figure}
 
 De acordo com THÉ(1992):
 \begin{citacao}
@@ -93,40 +100,29 @@ De acordo com THÉ(1992):
 Nós que não possuem arestas são denominados de nó folha, esses nós são configurações de fim de jogo, são aplicados nesses nós um fator avaliativo
 para validar se aquele nó possui um resultado positivo ou negativo para a máquina, o nó em questão recebe um valor com base no seu resultado.
 
-
 No caso do xadrez o valor avaliativo é dado com base em um valor específico para cada peça, caso haja mais peças da máquina com um valor
 significativo aquele  possui um valor positivo, caso contrário possui um valor negativo.
+% \begin{figure}[!htb]
+%     \Caption{Representação do algoritmo minimax no xadrez}
+%     \centering
+%     \label{minimax-chess}
+%     \includegraphics[scale=0.5]{figuras/Minimax Chess.jpeg}
+%     \Fonte{\url{https://www.freecodecamp.org/news/simple-chess-ai-step-by-step-1d55a9266977/}.\\ Acessado em: 24 de jun. 2022}
+% \end{figure}
 
 Após a avaliação todos as arestas de um nó atribuirmos um valor ao mesmo, se o nó em questão for um nó de min, ou seja, uma jogada
 do adversário, atribuímos ao nó o valor mínimo entre os valores de suas arestas, caso seja o max, uma jogada da máquina, atribuímos
 o valor máximo entre suas arestas.
 
-No fim de todas as arestas o algoritmo escolhe a aresta com o maior valor pois esta é a melhor alternativa para se seguir.
-
-\begin{figure}[!ht]
-    \Caption{Representação do algoritmo minimax}
-    \centering
-    \label{minimax}
-    \includegraphics[scale=0.8]{figuras/minimax2.png}
-    \Fonte{\url{https://wblog.wiki/pt/Minimax}. Acessado em: 24 de jun. 2022}
-\end{figure}
-
-\begin{figure}[!ht]
-    \Caption{Representação do algoritmo minimax no xadrez}
-    \centering
-    \label{minimax-chess}
-    \includegraphics[scale=0.5]{figuras/Minimax Chess.jpeg}
-    \Fonte{\url{https://www.freecodecamp.org/news/simple-chess-ai-step-by-step-1d55a9266977/}.\\ Acessado em: 24 de jun. 2022}
-\end{figure}
-\begin{figure}[!ht]
-    \Caption{Pseudo Código do \textit{Minimax}}
+\begin{figure}[!htb]
+    \Caption{Pseudo Código do \textit{minimax}}
     \centering
     \label{minimax-code}
     \includegraphics[scale=0.25]{figuras/minimax.png}
-    \Fonte{Nossa autoria}
+    \Fonte{De autoria própria.}
 \end{figure}
 
-
+No fim de todas as arestas o algoritmo escolhe a aresta com o maior valor pois esta é a melhor alternativa para se seguir.
 
 \subsection{Algoritmo alpha-beta pruning}
 
@@ -146,21 +142,20 @@ caso o valor de B seja 6 saberemos que o nó A maximizador escolherá um valor m
 se avaliarmos o nó C e ele possuir um nó filho com valor 4, saberemos que aquele nó só escolherá um valor 4
 ou menor, logo não há necessidade de fazer mais nenhuma avaliação de seus filhos pois o maior valor para o nó
 A já foi escolhido.
-
-\begin{figure}[!ht]
+\begin{figure}[!htb]
     \Caption{Representação da árvore de jogadas utilizando o  algoritmo alpha-beta}
     \centering
     \label{alpha-beta}
     \includegraphics[scale=0.30]{figuras/Inserir_um_pouquinho_de_texto_1.png}
-    \Fonte{De autoria própria}
+    \Fonte{De autoria própria.}
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}[!htb]
     \Caption{Pseudo Código do \textit{alpha-beta}}
     \centering
     \label{alphabeta-code}
     \includegraphics[scale=0.25]{figuras/alphabeta.png}
-    \Fonte{Nossa autoria}
+    \Fonte{De autoria própria.}
 \end{figure}
 
 \subsection{Funções com uso de redes neurais}

@@ -91,3 +91,22 @@ Para esta pesquisa, estaremos utilizando os motores de xadrez chamados \textit{S
 
 A comparação que faremos entre os motores vai ser pela sua velocidade em calcular as melhores jogadas, a qualidade de movimentos,
 sua porcentagem de vitórias e por seu ranking nos campeonatos de motores online, sendo o mais famoso deles o \textit{Top Chess Engine Championship}.
+
+Primeiro começaremos avaliando a implementação da representação do tabuleiro de cada um dos motores de xadrez selecionados,
+descrevendo como é a estrutura de dados que guarda: as posições de todas as peças, a informação de qual dos jogadores
+é a vez, o direito de \textit{roque}, a casa com possibilidades de captura \textit{en passant} e o número de movimentos relacionado
+a regra de 50 movimentos. Também mediremos quão boa a representação do tabuleiro com base nas três principais
+formas de representação: centrada nas peças, centrada nas casas e a híbrida.
+
+
+Depois de analisarmos a base do motor, iremos calcular a velocidade mínima, média e de pior caso de cada um dos algoritmos
+apontados neste trabalho, levando em conta as variáveis de quantidade de peças em jogo, possíveis movimentos de \textit{roque}
+e captura \textit{en passant}. Além de a partir das referências já citadas e seus diferentes métodos de cálculo de avaliação
+de movimentos, verificar quais dos algoritmos produzem os melhores movimentos.
+
+Criaremos uma estrutura de teste para verificar a porcentagem de vitórias de cada motor de xadrez, investigando
+a participação de cada algoritmo nesta porcentagem. Levaremos em conta o elo ou \textit{ranking} dos motores em campeonatos,
+seus feitos já realizados, e possíveis erros e \textit{bugs} encontrados.
+
+Por fim, analisaremos quais possíveis mudanças e efeitos diferentes algoritmos de comunicação entre dois motores
+e uma interface podem produzir dentro dos fatores aos quais iremos comparar os motores.
