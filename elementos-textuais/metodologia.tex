@@ -1,83 +1,93 @@
-\chapter{Título da Seção Primária}
+% \chapter{Título da Seção Primária}
 
-\begin{figure}[!h]
-    \centering
-    \Caption{\label{fig:exemplo-2}Exemplo de Figura}
-    \IFCEfig{}{
-        \fbox{\includegraphics[width=8cm]{figuras/logo-ifce}}
-    }{
-        \Fonte{Elaborado pelo autor}
-    }
-\end{figure}
+% \begin{figure}[!h]
+%     \centering
+%     \Caption{\label{fig:exemplo-2}Exemplo de Figura}
+%     \IFCEfig{}{
+%         \fbox{\includegraphics[width=8cm]{figuras/logo-ifce}}
+%     }{
+%         \Fonte{Elaborado pelo autor}
+%     }
+% \end{figure}
 
-\begin{table}[!h]
-    \centering
-    \Caption{\label{tab:exemplo-2} Exemplo de Tabela}
-    \IFCEtab{}{
-        \begin{tabular}{cll}
-            \toprule
-            Texto             & Texto             & Texto             \\
-            \midrule \midrule
-            Texto texto texto & Texto texto texto & Texto texto texto \\
-            Texto texto texto & Texto texto texto & Texto texto texto \\
-            Texto texto texto & Texto texto texto & Texto texto texto \\
-            Texto texto texto & Texto texto texto & Texto texto texto \\
-            Texto texto texto & Texto texto texto & Texto texto texto \\
-            Texto texto texto & Texto texto texto & Texto texto texto \\
-            \bottomrule
-        \end{tabular}
-    }{
-        \Fonte{Elaborado pelo autor}
-    }
-\end{table}
+% \begin{table}[!h]
+%     \centering
+%     \Caption{\label{tab:exemplo-2} Exemplo de Tabela}
+%     \IFCEtab{}{
+%         \begin{tabular}{cll}
+%             \toprule
+%             Texto             & Texto             & Texto             \\
+%             \midrule \midrule
+%             Texto texto texto & Texto texto texto & Texto texto texto \\
+%             Texto texto texto & Texto texto texto & Texto texto texto \\
+%             Texto texto texto & Texto texto texto & Texto texto texto \\
+%             Texto texto texto & Texto texto texto & Texto texto texto \\
+%             Texto texto texto & Texto texto texto & Texto texto texto \\
+%             Texto texto texto & Texto texto texto & Texto texto texto \\
+%             \bottomrule
+%         \end{tabular}
+%     }{
+%         \Fonte{Elaborado pelo autor}
+%     }
+% \end{table}
 
-\begin{quadro}[!h]
-    \centering
-    \Caption{\label{qua:exemplo-3} Exemplo de Quadro}
-    \IFCEqua{}{
-        \begin{tabular}{|c|c|l|l|}
-            \hline
-            Texto             & Texto             & Texto             & Texto             \\
-            \hline
-            Texto texto texto & Texto texto texto & Texto texto texto & Texto texto texto \\
-            \hline
-            Texto texto texto & Texto texto texto & Texto texto texto & Texto texto texto \\
-            \hline
-            Texto texto texto & Texto texto texto & Texto texto texto & Texto texto texto \\
-            \hline
-        \end{tabular}
-    }{
-        \Fonte{Elaborado pelo autor}
-    }
-\end{quadro}
+% \begin{quadro}[!h]
+%     \centering
+%     \Caption{\label{qua:exemplo-3} Exemplo de Quadro}
+%     \IFCEqua{}{
+%         \begin{tabular}{|c|c|l|l|}
+%             \hline
+%             Texto             & Texto             & Texto             & Texto             \\
+%             \hline
+%             Texto texto texto & Texto texto texto & Texto texto texto & Texto texto texto \\
+%             \hline
+%             Texto texto texto & Texto texto texto & Texto texto texto & Texto texto texto \\
+%             \hline
+%             Texto texto texto & Texto texto texto & Texto texto texto & Texto texto texto \\
+%             \hline
+%         \end{tabular}
+%     }{
+%         \Fonte{Elaborado pelo autor}
+%     }
+% \end{quadro}
 
-\newpage
+% \newpage
 
-\begin{center}
-    Exemplo de referência \\
-    Livro: \cite{knuth} \\ Dissertação: \cite{Maia2011} \\ Artigo: \cite{lamport1986latex}
-\end{center}
+% \begin{center}
+%     Exemplo de referência \\
+%     Livro: \cite{knuth} \\ Dissertação: \cite{Maia2011} \\ Artigo: \cite{lamport1986latex}
+% \end{center}
 
-\begin{center}
-    Exemplo de Alíneas com Número
-\end{center}
-\begin{alineascomnumero}
-    \item Texto texto texto.
-    \item Texto texto texto.
-    \item Texto texto texto.
-    \item Texto texto texto.
-    \item Texto texto texto.
-\end{alineascomnumero}
+% \begin{center}
+%     Exemplo de Alíneas com Número
+% \end{center}
+% \begin{alineascomnumero}
+%     \item Texto texto texto.
+%     \item Texto texto texto.
+%     \item Texto texto texto.
+%     \item Texto texto texto.
+%     \item Texto texto texto.
+% \end{alineascomnumero}
 
-\begin{center}
-    Exemplo de Alíneas com Ponto
-\end{center}
-\begin{alineascomponto}
-    \item Texto texto texto.
-    \item Texto texto texto.
-    \item Texto texto texto.
-    \begin{subalineascomponto}
-        \item Texto texto texto.
-        \item Texto texto texto.
-    \end{subalineascomponto}
-\end{alineascomponto}
+% \begin{center}
+%     Exemplo de Alíneas com Ponto
+% \end{center}
+% \begin{alineascomponto}
+%     \item Texto texto texto.
+%     \item Texto texto texto.
+%     \item Texto texto texto.
+%     \begin{subalineascomponto}
+%         \item Texto texto texto.
+%         \item Texto texto texto.
+%     \end{subalineascomponto}
+% \end{alineascomponto}
+\chapter{Metodologia}
+Com base em Marconi e Lakatos (2001), como estaremos utilizando métodos matemáticos, lógicos e estatísticos para esta pesquisa,
+determinamos que esta terá caráter quantitativo.
+
+Para esta pesquisa, estaremos utilizando os motores de xadrez chamados \textit{Stockfish}, \textit{Leela Chess Zero} (LCZ),
+\textit{RubiChess}, \textit{Nemorino}, \textit{Igel}, \textit{Xifos}, \textit{Laser}, \textit{Defenchess}, \textit{Andscacs},
+\textit{Halogênio}, \textit{Arasan} e o \textit{Combusken}, todos de código aberto.
+
+A comparação que faremos entre os motores vai ser pela sua velocidade em calcular as melhores jogadas, a qualidade de movimentos,
+sua porcentagem de vitórias e por seu ranking nos campeonatos de motores online, sendo o mais famoso deles o \textit{Top Chess Engine Championship}.

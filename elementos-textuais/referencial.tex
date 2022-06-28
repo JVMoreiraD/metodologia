@@ -7,7 +7,7 @@ Depois, falaremos sobre o estado da arte deste tema.
 \section{Teoria e Conceitos de Base}
 Esta parte do projeto conterá as informações teóricas necessárias para compreensão do tema e sua problematização,
 assim veremos os conceitos de inteligência artificial, motor de xadrez, algoritmo de busca \textit{min-max},
-algoritmo \textit{alpha-beta pruning} e suas funções com uso de redes neurais.
+algoritmo \textit{alpha-beta pruning} e as funções com uso de redes neurais.
 
 \subsection{Conceito de Inteligencia Artificial}
 O conceito de inteligência artificial surgiu da ideia de reproduzir nas máquinas a capacidade humana de usar das informações
@@ -68,7 +68,7 @@ a regra de 50 movimentos, entre outros. Uma boa representação do tabuleiro tor
 muito rápidas, de forma geral, existem três métodos diferentes para representar um tabuleiro: centrado nas casas, centrado nas peças
 e soluções híbridas.
 
-Bijl e Tiet (2021) ressaltam a importância desta fase, pois qualquer algoritmo, esteja relacionado a pesquisa
+Bijil e Tiet (2021) ressaltam a importância desta fase, pois qualquer algoritmo, esteja relacionado a pesquisa
 ou avaliação, tem como base a implementação da representação do tabuleiro.
 
 \subsection{Algoritmo de busca min-max}
@@ -78,11 +78,11 @@ se cada um satisfaz o problema, no caso do minimax ele divide as possibilidades 
 conseguir a melhor jogada possível.
 
 Essa árvore vai ser definida em etapas de minimização(min) e maximização(max), sendo cada uma destas etapas representadas por uma jogada do
-adversário ou da máquina respectivamente,o objetivo das jogadas de minimização é minimizar as chances de uma boa jogada da máquina e as de
-maximização é maximizar as chances de uma boa jogada da máquina ocorrer,cada nó representa uma configuração do jogo, e cada aresta de um nó representa
+adversário ou da máquina respectivamente, o objetivo das jogadas de minimização é minimizar as chances de uma boa jogada da máquina e as de
+maximização é maximizar as chances de uma boa jogada da máquina ocorrer, cada nó representa uma configuração do jogo, e cada aresta de um nó representa
 uma jogada que leva a uma determinada configuração.
 
-De acordo com Eric Thé(1992):
+De acordo com THÉ(1992):
 \begin{citacao}
     Jogos de soma-zero com dois jogadores que exigem inteligência humana como Xadrez, damas, go e othello
     podem ser todos resolvidos computacionalmente programando uma procurando uma busca computacional de
@@ -118,56 +118,77 @@ No fim de todas as arestas o algoritmo escolhe a aresta com o maior valor pois e
     \includegraphics[scale=0.5]{figuras/Minimax Chess.jpeg}
     \Fonte{\url{https://www.freecodecamp.org/news/simple-chess-ai-step-by-step-1d55a9266977/}.\\ Acessado em: 24 de jun. 2022}
 \end{figure}
+\begin{figure}[!ht]
+    \Caption{Pseudo Código do \textit{Minimax}}
+    \centering
+    \label{minimax-code}
+    \includegraphics[scale=0.25]{figuras/minimax.png}
+    \Fonte{Nossa autoria}
+\end{figure}
+
 
 
 \subsection{Algoritmo alpha-beta pruning}
 
-O alpha-beta prunning é um algoritmo de otimização do minimax onde excluímos as arestas que possuem um valor
+O \textit{alpha-beta pruning} é um algoritmo de otimização do minimax onde excluímos as arestas que possuem um valor
 pior do que um valor encontrado anteriormente, isso é feito para economizar tempo de processamento da máquina
-já que o algoritmo minimax por si só é muito custoso
+já que o algoritmo minimax por si só é muito custoso.
 
-
-O algoritmo funciona da seguinte forma,existem duas variáveis chamadas alpha e beta respectivamente,
-alpha é o maior valor que o maximizador pode garantir naquele nível da árvore ou abaixo e beta é o menor
+O algoritmo funciona da seguinte forma, existem duas variáveis chamadas \textit{alpha} e \textit{beta} respectivamente,
+\textit{alpha} é o maior valor que o maximizador pode garantir naquele nível da árvore ou abaixo e beta é o menor
 valor que o minimizador possui naquele nível da árvore ou abaixo, a cada subida na árvore esses valores são
-atualizados com base nos maiores valores encontrados,logo,quando o algoritmo está decidindo o valor que irá
+atualizados com base nos maiores valores encontrados, logo, quando o algoritmo está decidindo o valor que irá
 atribuir ao nó em questão ele verifica as variáveis para verificar se uma das arestas tem chances de possuir
 um valor maior ou menor do que ele já possui nas variáveis alpha e beta.
 
-
-Pegando por exemplo um nó maximizador A com dois nós filhos minimizadores,B e C,
+Pegando por exemplo um nó maximizador A com dois nós filhos minimizadores, B e C,
 caso o valor de B seja 6 saberemos que o nó A maximizador escolherá um valor maior ou igual a 6,
 se avaliarmos o nó C e ele possuir um nó filho com valor 4, saberemos que aquele nó só escolherá um valor 4
 ou menor, logo não há necessidade de fazer mais nenhuma avaliação de seus filhos pois o maior valor para o nó
 A já foi escolhido.
 
+\begin{figure}[!ht]
+    \Caption{Representação da árvore de jogadas utilizando o  algoritmo alpha-beta}
+    \centering
+    \label{alpha-beta}
+    \includegraphics[scale=0.30]{figuras/Inserir_um_pouquinho_de_texto_1.png}
+    \Fonte{De autoria própria}
+\end{figure}
+
+\begin{figure}[!ht]
+    \Caption{Pseudo Código do \textit{alpha-beta}}
+    \centering
+    \label{alphabeta-code}
+    \includegraphics[scale=0.25]{figuras/alphabeta.png}
+    \Fonte{Nossa autoria}
+\end{figure}
+
 \subsection{Funções com uso de redes neurais}
 
-Redes neurais ou redes neurais artificiais é um dos tipos de machine learning que se inspira no cérebro
+Redes neurais ou redes neurais artificiais é um dos tipos de \textit{machine learning} que se inspira no cérebro
 humano imitando a forma como os nossos neurônios conversam entre si usando um algoritmo de aprendizagem
 que tem como objetivo modificar pesos sinápticos da rede de uma forma ordenada para alcançar uma solução esperada.
 
-Haykin define redes neurais e suas semelhanças com o cérebro humano da seguinte forma:
-
+Haykin(2007) define redes neurais e suas semelhanças com o cérebro humano da seguinte forma:
 \begin{citacao}
-    Uma rede neural é um processador maciçamente paralelamente distribuído constituído de unidade de processamento simples,
+    Uma rede neural é um processador maciçamente paralelamente distribuído constituído de unidades de processamento simples,
     que têm a propensão natural para armazenar conhecimento experimental e torna-lo disponível para uso. Ela se assemelha ao cérebro humano
     em dois aspectos:
 
     1. O conhecimento é adquirido pela rede a partir de seu ambiente através de um processo de aprendizagem.
 
     2. Forças de conexão de neurônios, conhecidas como pesos sinápticos, são utilizados para armazenar o conhecimento adquirido.
-    \cite{HAYKIN}
+    \cite[p.28, tradução por Paulo Martins Engel]{HAYKIN}
 \end{citacao}
 
 Fausett(1993) complementa dizendo que:
 \begin{citacao}
     (...) um sistema de processamento de informações que possui certas características de desempenho em comum com as redes
     neurais biológicas. Redes neurais artificiais foram desenvolvidas como generalização de modelos matemáticos da cognição
-    humana ou biologia neural (...) \cite[tradução nossa, p.3]{FAUSETT}
+    humana ou biologia neural (...) \cite[p.3, tradução nossa.]{FAUSETT}
 \end{citacao}
 
-\subsection{Estado da Arte}
+\section{Estado da Arte}
 
 Existem vários trabalhos envolvendo a criação de motores de xadrez e descrição de seus algoritmos, iremos aqui citar
 alguns dos quais tomamos como base para este projeto.
@@ -175,11 +196,11 @@ alguns dos quais tomamos como base para este projeto.
 Santana (2014) apresenta teorias e algoritmos relacionados ao xadrez para computador e mostra possíveis implementações
 para um motor de xadrez, no final ele analisa a implementação dentro do motor de xadrez de código aberto Pulse.
 
-Abreu et al. (2006) também apresenta teorias e implementações de algoritmos, mas este descreve técnicas mais avançadas,
+Abreu \textit{et al}. (2006) também apresenta teorias e implementações de algoritmos, mas este descreve técnicas mais avançadas,
 como: Tabelas de transposição, extensões e reduções de busca, livro de aberturas e banco de dados finais. Além disso,
 este trabalho faz a análise resumida de um motor de xadrez de propriedade dos autores chamado ICE.
 
-Block et al. (2008) apresenta a teoria matemática e lógica para implementar aprendizado por reforço por meio de um
+Block \textit{et al}. (2008) apresenta a teoria matemática e lógica para implementar aprendizado por reforço por meio de um
 método chamado Diferença Temporal (DT), o qual otimiza as funções de avaliação e seus coeficientes, e tem a capacidade
 de aumentar sua própria compreensão do xadrez após cada partida.
 
@@ -189,3 +210,8 @@ a comparação de diferentes técnicas tanto no fator de velocidade quanto no de
 Como pode ser visto, existem vários trabalhos explicando diferentes tipos de implementação dos algoritmos para motores de xadrez,
 mas não muitos fazem a comparação entre eles e suas implementações nestes, assim buscamos ampliar a visão neste tema, mostrando
 caminhos no qual os algoritmos podem ser melhorados.
+
+\nocite{CYNTIA}
+\nocite{BIJIL}
+\nocite{BLOCK}
+\nocite{marconi6}
